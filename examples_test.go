@@ -27,16 +27,19 @@
  * Copyright 2018 ARDUINO AG (http://www.arduino.cc/)
  */
 
-package main
+package win32_test
 
-import "github.com/arduino/go-win32-utils"
-import "fmt"
+import (
+	"fmt"
 
-func main() {
-	path, err := win32.GetDocumentsFolder()
-	if err != nil {
-		fmt.Println("error:", err)
-	} else {
-		fmt.Println(path)
-	}
+	win32 "github.com/arduino/go-win32-utils"
+)
+
+func Example() {
+	d, err := win32.GetDocumentsFolder()
+	fmt.Printf("Documents       folder: [err=%v] %s\n", err, d)
+	d, err = win32.GetLocalAppDataFolder()
+	fmt.Printf("Local AppData   folder: [err=%v] %s\n", err, d)
+	d, err = win32.GetRoamingAppDataFolder()
+	fmt.Printf("Roaming AppData folder: [err=%v] %s\n", err, d)
 }
