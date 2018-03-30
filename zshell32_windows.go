@@ -58,14 +58,10 @@ func taskMemFree(pv uintptr) {
 	return
 }
 
-func getFolderPath(hwndOwner uint32, nFolder int, hToken syscall.Handle, dwFlags uint32, path *uint16) (err error) {
-	r1, _, e1 := syscall.Syscall6(procSHGetFolderPathW.Addr(), 5, uintptr(hwndOwner), uintptr(nFolder), uintptr(hToken), uintptr(dwFlags), uintptr(unsafe.Pointer(path)), 0)
-	if r1 == 0 {
-		if e1 != 0 {
-			err = errnoErr(e1)
-		} else {
-			err = syscall.EINVAL
-		}
+func getFolderPath(hwndOwner uint32, nFolder int, hToken syscall.Handle, dwFlags uint32, path *uint16) (regerrno error) {
+	r0, _, _ := syscall.Syscall6(procSHGetFolderPathW.Addr(), 5, uintptr(hwndOwner), uintptr(nFolder), uintptr(hToken), uintptr(dwFlags), uintptr(unsafe.Pointer(path)), 0)
+	if r0 != 0 {
+		regerrno = syscall.Errno(r0)
 	}
 	return
 }

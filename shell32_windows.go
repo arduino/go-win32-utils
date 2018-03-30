@@ -37,7 +37,7 @@ import (
 
 //sys getKnownFolderPath(rfid *syscall.GUID, dwFlags uint32, hToken syscall.Handle, path **uint16) (regerrno error) = shell32.SHGetKnownFolderPath
 //sys taskMemFree(pv uintptr) = ole32.CoTaskMemFree
-//sys getFolderPath(hwndOwner uint32, nFolder int, hToken syscall.Handle, dwFlags uint32, path *uint16) (err error) = shell32.SHGetFolderPathW
+//sys getFolderPath(hwndOwner uint32, nFolder int, hToken syscall.Handle, dwFlags uint32, path *uint16) (regerrno error) = shell32.SHGetFolderPathW
 
 func init() {
 	if err1, err2 := procSHGetKnownFolderPath.Find(), procCoTaskMemFree.Find(); err1 != nil || err2 != nil {
