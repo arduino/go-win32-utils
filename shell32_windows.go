@@ -72,12 +72,24 @@ func GetDocumentsFolder() (string, error) {
 	return getFolder(documentsFolder)
 }
 
+// GetLocalAppDataFolder returns the LocalAppData folder
+func GetLocalAppDataFolder() (string, error) {
+	return getFolder(localAppDataFolder)
+}
+
+// GetRoamingAppDataFolder returns the AppData folder
+func GetRoamingAppDataFolder() (string, error) {
+	return getFolder(roamingAppDataFolder)
+}
+
 type folderIdentifier struct {
 	FOLDERID *syscall.GUID
 	CSIDL    int
 }
 
 var documentsFolder = &folderIdentifier{FOLDERID: folderIDDocuments, CSIDL: csidlMyDocuments}
+var roamingAppDataFolder = &folderIdentifier{FOLDERID: folderIDRoamingAppData, CSIDL: csidlAppData}
+var localAppDataFolder = &folderIdentifier{FOLDERID: folderIDLocalAppData, CSIDL: csidlAppData}
 
 // Windows folderID constants
 var folderIDAddNewPrograms = &syscall.GUID{Data1: 0xDE61D971, Data2: 0x5EBC, Data3: 0x4F02, Data4: [8]byte{0xA3, 0xA9, 0x6C, 0x82, 0x89, 0x5E, 0x5C, 0x04}}

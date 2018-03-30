@@ -39,3 +39,11 @@ import (
 func GetDocumentsFolder() (string, error) {
 	return "", fmt.Errorf("operating system not supported: %s", runtime.GOOS)
 }
+
+func GetLocalAppDataFolder() (string, error) {
+	return "", fmt.Errorf("operating system not supported: %s", runtime.GOOS)
+}
+
+func GetRoamingAppDataFolder() (string, error) {
+	return "", fmt.Errorf("operating system not supported: %s", runtime.GOOS)
+}
