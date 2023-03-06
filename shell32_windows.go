@@ -35,6 +35,8 @@ import (
 	"unsafe"
 )
 
+//go:generate go run golang.org/x/sys/windows/mkwinsyscall -output zshell32_windows.go shell32_windows.go
+
 //sys getKnownFolderPath(rfid *syscall.GUID, dwFlags uint32, hToken syscall.Handle, path **uint16) (regerrno error) = shell32.SHGetKnownFolderPath
 //sys taskMemFree(pv uintptr) = ole32.CoTaskMemFree
 //sys getFolderPath(hwndOwner uint32, nFolder int, hToken syscall.Handle, dwFlags uint32, path *uint16) (regerrno error) = shell32.SHGetFolderPathW
