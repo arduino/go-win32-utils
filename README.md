@@ -5,6 +5,7 @@
 [![Test Go status](https://github.com/arduino/go-win32-utils/actions/workflows/test-go-task.yml/badge.svg)](https://github.com/arduino/go-win32-utils/actions/workflows/test-go-task.yml)
 [![Codecov](https://codecov.io/gh/arduino/go-win32-utils/branch/main/graph/badge.svg)](https://codecov.io/gh/arduino/go-win32-utils)
 [![Check Go status](https://github.com/arduino/go-win32-utils/actions/workflows/check-go-task.yml/badge.svg)](https://github.com/arduino/go-win32-utils/actions/workflows/check-go-task.yml)
+[![Check License status](https://github.com/arduino/go-win32-utils/actions/workflows/check-license.yml/badge.svg)](https://github.com/arduino/go-win32-utils/actions/workflows/check-license.yml)
 
 This library contains some useful calls to win32 API that are not available on the standard golang library.
 
