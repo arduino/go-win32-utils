@@ -262,7 +262,7 @@ type TagMSG struct {
 	LPrivate int32
 }
 
-const WM_Quit = 0x0012
+const WMQuit = 0x0012
 
 const WsExDlgModalFrame = 0x00000001
 const WsExTopmost = 0x00000008
@@ -272,7 +272,7 @@ const WsExToolWindow = 0x00000080
 const WsExAppWindow = 0x00040000
 const WsExLayered = 0x00080000
 
-type Guid struct {
+type GUID struct {
 	Data1 uint32
 	Data2 uint16
 	Data3 uint16
@@ -283,12 +283,12 @@ type DevBroadcastDeviceInterface struct {
 	DwSize       uint32
 	DwDeviceType uint32
 	DwReserved   uint32
-	ClassGUID    Guid
+	ClassGUID    GUID
 	SzName       uint16
 }
 
-// USB devices GUID used to filter notifications
-var UsbEventGUID Guid = Guid{
+// UsbEventGUID is USB devices GUID used to filter notifications
+var UsbEventGUID GUID = GUID{
 	Data1: 0x10bfdca5,
 	Data2: 0x3065,
 	Data3: 0xd211,
@@ -301,8 +301,8 @@ const DeviceNotifyAllInterfaceClasses = 4
 
 const DbtDevtypeDeviceInterface = 5
 
-const PM_NoRemove = 0x0000
-const PM_Remove = 0x0001
-const PM_NoYield = 0x0002
+const PMNoRemove = 0x0000
+const PMRemove = 0x0001
+const PMNoYield = 0x0002
 
 type WindowProcCallback func(hwnd syscall.Handle, msg uint32, wParam uintptr, lParam uintptr) uintptr
