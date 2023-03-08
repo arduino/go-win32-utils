@@ -1,6 +1,21 @@
 # See: https://taskfile.dev/#/usage
 version: "3"
 
+vars:
+  # Path of the project's primary Go module:
+  DEFAULT_GO_MODULE_PATH: ./
+  DEFAULT_GO_PACKAGES:
+    sh: |
+      echo $(
+        cd {{default .DEFAULT_GO_MODULE_PATH .GO_MODULE_PATH}} &&
+        go list ./... | tr '\n' ' ' ||
+        echo '"ERROR: Unable to discover Go packages"'
+      )
+  # `-ldflags` flag to use for `go build` command
+  LDFLAGS:
+  # `-ldflags` flag to use for `go test` command
+  TEST_LDFLAGS:
+
 tasks:
   docs:generate:
     desc: Create all generated documentation content
@@ -87,3 +102,18 @@ tasks:
     desc: Install dependencies managed by npm
     cmds:
       - npm install
+
+  # Source: https://github.com/arduino/tooling-project-assets/blob/main/workflow-templates/assets/test-go-task/Taskfile.yml
+  go:test:
+    desc: Run unit tests
+    dir: "{{default .DEFAULT_GO_MODULE_PATH .GO_MODULE_PATH}}"
+    cmds:
+      - |
+        go test \
+          -v \
+          -short \
+          -run '{{default ".*" .GO_TEST_REGEX}}' \
+          {{default "-timeout 10m -coverpkg=./... -covermode=atomic" .GO_TEST_FLAGS}} \
+          -coverprofile=coverage_unit.txt \
+          {{.TEST_LDFLAGS}} \
+          {{default .DEFAULT_GO_PACKAGES .GO_PACKAGES}}
