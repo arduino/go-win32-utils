@@ -114,7 +114,7 @@ func Start(ctx context.Context, eventCB func(), errorCB func(msg string)) error 
 	for {
 		// Verify running thread prerequisites
 		if currThreadID := windows.GetCurrentThreadId(); currThreadID != osThreadID.Load() {
-			panic(fmt.Sprintf("this function must run on the main OS Thread: currThread=%d, osThread=%d", currThreadID, osThreadID))
+			panic(fmt.Sprintf("this function must run on the main OS Thread: currThread=%d, osThread=%d", currThreadID, osThreadID.Load()))
 		}
 
 		var m win32.TagMSG
