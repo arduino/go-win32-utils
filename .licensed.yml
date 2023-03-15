@@ -1,0 +1,12 @@
+# See: https://github.com/github/licensed/blob/master/docs/configuration.md
+sources:
+  go: true
+
+# This list is incomplete. It must be updated when new dependencies are needed for the project
+allowed:
+  - bsd-3-clause
+  - bsd-3-clause-clear
+  - bsd-2-clause # Subsumed by `bsd-2-clause-views`
+  - bsd-2-clause-netbsd # Deprecated ID for `bsd-2-clause`
+  - bsd-2-clause-views # This is the version linked from https://www.gnu.org/licenses/license-list.html#FreeBSD
+  - bsd-2-clause-freebsd # Deprecated ID for `bsd-2-clause-views`
