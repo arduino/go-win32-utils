@@ -234,6 +234,7 @@ const csidlSystemX86 = 41
 const csidlTemplates = 21
 const csidlWindows = 36
 
+// WndClass FIXMEDOCS
 type WndClass struct {
 	Style        uint32
 	WndProc      uintptr
@@ -247,11 +248,13 @@ type WndClass struct {
 	ClassName    *byte
 }
 
+// Point FIXMEDOCS
 type Point struct {
 	X int32
 	Y int32
 }
 
+// TagMSG FIXMEDOCS
 type TagMSG struct {
 	Hwnd     syscall.Handle
 	Message  uint32
@@ -262,47 +265,71 @@ type TagMSG struct {
 	LPrivate int32
 }
 
-const WM_Quit = 0x0012
+// WMQuit FIXMEDOCS
+const WMQuit = 0x0012
 
-const WsExDlgModalFrame = 0x00000001
-const WsExTopmost = 0x00000008
-const WsExTransparent = 0x00000020
-const WsExMDIChild = 0x00000040
-const WsExToolWindow = 0x00000080
-const WsExAppWindow = 0x00040000
-const WsExLayered = 0x00080000
+const (
+	// WsExDlgModalFrame FIXMEDOCS
+	WsExDlgModalFrame = 0x00000001
+	// WsExTopmost FIXMEDOCS
+	WsExTopmost = 0x00000008
+	// WsExTransparent FIXMEDOCS
+	WsExTransparent = 0x00000020
+	// WsExMDIChild FIXMEDOCS
+	WsExMDIChild = 0x00000040
+	// WsExToolWindow FIXMEDOCS
+	WsExToolWindow = 0x00000080
+	// WsExAppWindow FIXMEDOCS
+	WsExAppWindow = 0x00040000
+	// WsExLayered FIXMEDOCS
+	WsExLayered = 0x00080000
+)
 
-type Guid struct {
+// GUID FIXEMEDOCS
+type GUID struct {
 	Data1 uint32
 	Data2 uint16
 	Data3 uint16
 	Data4 [8]byte
 }
 
+// DevBroadcastDeviceInterface FIXMEDOCS
 type DevBroadcastDeviceInterface struct {
 	DwSize       uint32
 	DwDeviceType uint32
 	DwReserved   uint32
-	ClassGUID    Guid
+	ClassGUID    GUID
 	SzName       uint16
 }
 
-// USB devices GUID used to filter notifications
-var UsbEventGUID Guid = Guid{
+// UsbEventGUID is USB devices GUID used to filter notifications
+var UsbEventGUID GUID = GUID{
 	Data1: 0x10bfdca5,
 	Data2: 0x3065,
 	Data3: 0xd211,
 	Data4: [8]byte{0x90, 0x1f, 0x00, 0xc0, 0x4f, 0xb9, 0x51, 0xed},
 }
 
-const DeviceNotifyWindowHandle = 0
-const DeviceNotifySserviceHandle = 1
-const DeviceNotifyAllInterfaceClasses = 4
+const (
+	// DeviceNotifyWindowHandle FIXMEDOCS
+	DeviceNotifyWindowHandle = 0
+	// DeviceNotifySserviceHandle FIXMEDOCS
+	DeviceNotifySserviceHandle = 1
+	// DeviceNotifyAllInterfaceClasses FIXMEDOCS
+	DeviceNotifyAllInterfaceClasses = 4
+)
 
+// DbtDevtypeDeviceInterface FIXMEDOCS
 const DbtDevtypeDeviceInterface = 5
 
-const PM_NoRemove = 0x0000
-const PM_Remove = 0x0001
-const PM_NoYield = 0x0002
+const (
+	// PMNoRemove FIXMEDOCS
+	PMNoRemove = 0x0000
+	// PMRemove FIXMEDOCS
+	PMRemove = 0x0001
+	// PMNoYield FIXMEDOCS
+	PMNoYield = 0x0002
+)
 
+// WindowProcCallback FIXMEDOCS
 type WindowProcCallback func(hwnd syscall.Handle, msg uint32, wParam uintptr, lParam uintptr) uintptr

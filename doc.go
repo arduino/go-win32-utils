@@ -27,6 +27,6 @@
  * the GNU General Public License.
  */
 
-// win32 is a collection of useful bindings to Win32 API that are not available in the standard
+// Package win32 is a collection of useful bindings to Win32 API that are not available in the standard
 // golang windows/syscall package.
 package win32
