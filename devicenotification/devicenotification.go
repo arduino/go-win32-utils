@@ -1,8 +1,7 @@
+// This file is part of go-win32-utils.
 //
-// Copyright 2018-2023 ARDUINO SA. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-//
+// SPDX-FileCopyrightText: Arduino s.r.l. and/or its affiliated companies
+// SPDX-License-Identifier: BSD-3-Clause
 
 package devicenotification
 

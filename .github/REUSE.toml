@@ -1,0 +1,17 @@
+version = 1
+
+# GitHub workflows
+[[annotations]]
+path = [
+  "PULL_REQUEST_TEMPLATE.md",
+  "workflows/check-go-dependencies-task.yml",
+  "workflows/check-go-task.yml",
+  "workflows/check-license.yml",
+  "workflows/check-markdown-task.yml",
+  "workflows/check-reuse-compliance.yml",
+  "workflows/check-taskfiles.yml",
+  "workflows/sync-labels.yml",
+  "workflows/test-go-task.yml",
+]
+SPDX-FileCopyrightText = "Arduino s.r.l. and/or its affiliated companies"
+SPDX-License-Identifier = "BSD-3-Clause"
